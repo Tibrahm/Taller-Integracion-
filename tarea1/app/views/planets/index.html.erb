@@ -1,0 +1,35 @@
+<h1><%= @planet['name'] %>  Planet</h1>
+<body>
+    <ul>
+        <li> Rotation Period: </li>
+        <%= @planet['rotation_period'] %>
+        <li> Orbital Period:</li>
+        <%= @planet['orbital_period'] %>
+        <li> Diameter: </li>
+        <%= @planet['diameter'] %>
+        <li> Climate: </li>
+        <%= @planet['climate'] %>
+        <li> Gravity: </li>
+        <%= @planet['gravity'] %>
+        <li> Standar: </li>
+        <%= @planet['standar'] %>
+        <li> Terrain: </li>
+        <%= @planet['terrain'] %>
+        <li> Surface Water: </li>
+        <%= @planet['surface_water'] %>
+        <li> Population: </li>
+        <%= @planet['population'] %>
+        <li> Residents:  </li>
+        <% @planet['residents'].each do |res|%>
+          <% url =  Film.new.info(res)['url'] %>
+          <%= link_to Film.new.info(res)['name'], characters_path(:url => url) %>
+        <% end %>
+        <li> Films:  </li>
+        <% @planet['films'].each do |film|%>
+          <% url =  Film.new.info(film)['url'] %>
+          <%= link_to Film.new.info(film)['title'], movies_path(:url => url) %>
+        <% end %>
+
+
+    </ul>
+</body>

@@ -1,0 +1,31 @@
+<h1><%= @char['name'] %></h1>
+<body>
+    <ul>
+        <li> Height: </li>
+        <%= @char['height'] %>
+        <li> Mass:</li>
+        <%= @char['mass'] %>
+        <li> Hair Color: </li>
+        <%= @char['hair_color'] %>
+        <li> Skin Color: </li>
+        <%= @char['skin_color'] %>
+        <li> Eye_color: </li>
+        <%= @char['eye_color'] %>
+        <li> Birth Year: </li>
+        <%= @char['birth_year'] %>
+        <li> Gender: </li>
+        <%= @char['gender'] %>
+        <li> Homer World: </li>
+        <%= link_to Film.new.info(@char['homeworld'])['name'], planets_path(:url => url) %>
+        <li> Films:  </li>
+        <% @char['films'].each do |film|%>
+          <% url =  Film.new.info(film)['url'] %>
+          <%= link_to Film.new.info(film)['title'], movies_path(:url => url) %>
+        <% end %>
+
+
+
+    </ul>
+
+    
+</body>

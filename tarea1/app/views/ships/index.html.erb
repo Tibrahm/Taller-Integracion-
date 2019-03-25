@@ -1,0 +1,38 @@
+<h1><%= @ship['name'] %>  Starship</h1>
+<body>
+    <ul>
+        <li> Model: </li>
+        <%= @ship['model'] %>
+        <li> Manufacturer:</li>
+        <%= @ship['manufacturer'] %>
+        <li> Cost: </li>
+        <%= @ship['cost_in_credits'] %>
+        <li> Lenght: </li>
+        <%= @ship['Lenght'] %>
+        <li> Max Stmosphering Speed: </li>
+        <%= @ship['max_atmosphering_speed'] %>
+        <li> Crew: </li>
+        <%= @ship['crew'] %>
+        <li> Passengers: </li>
+        <%= @ship['passengers'] %>
+        <li> Cargo Capacity: </li>
+        <%= @ship['cargo_capacity'] %>
+        <li> Consumables: </li>
+        <%= @ship['consumables'] %>
+        <li> Hyperdrive Rating: </li>
+        <%= @ship['hyperdrive_rating'] %>
+        <li> MGLT: </li>
+        <%= @ship['MGLT'] %>
+        <li> Starship Class: </li>
+        <%= @ship['starship_class'] %>
+        <li> Pilots: </li>
+        <%= @ship['pilots'] %>
+        <li> Films:  </li>
+        <% @ship['films'].each do |film|%>
+          <% url =  Film.new.info(film)['url'] %>
+          <%= link_to Film.new.info(film)['title'], movies_path(:url => url) %>
+        <% end %>
+
+
+    </ul>
+</body>
